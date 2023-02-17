@@ -1,11 +1,12 @@
 import express from 'express';
-const app = express();
-const port = 3000;
+import routes from './routes';
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+const port = 8080;
+
+const app = express();
+
+app.use('/', routes);
 
 app.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
+  return console.log(`Express is listening at http://localhost:${port}`);
 });
