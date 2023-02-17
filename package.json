@@ -5,10 +5,12 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "tsc && node dist/app.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts", 
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:build": "sudo docker build . -t star-ocean",
+    "docker:run": "sudo docker run --name star-ocean -p 49160:8080 -d star-ocean"
   },
   "author": "WrathfulCornsilkJackrabbit",
   "license": "ISC",
