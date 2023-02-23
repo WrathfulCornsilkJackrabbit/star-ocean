@@ -1,4 +1,5 @@
 import express from 'express';
+import { body } from 'express-validator';
 
 const router = express.Router();
 
@@ -7,10 +8,20 @@ router.get('/signup', (req: express.Request, res: express.Response) => {
     res.send('Register');
 });
 
-router.get('/signin', (req: express.Request, res: express.Response) => {
-    // TODO Implement
-    res.send('Login');
-});
+router.post('/signin',
+    // username must be an email
+    body('username')
+        .exists()
+        .isEmail(),
+    body('password')
+        .exists()
+        .isLength({ min: 5 }),
+    (req: express.Request, res: express.Response) => {
+
+
+        // TODO Implement
+        res.send('Login');
+    });
 
 router.get('/password-reset', (req: express.Request, res: express.Response) => {
     // TODO Implement
