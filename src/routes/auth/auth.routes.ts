@@ -2,22 +2,22 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/signup', (req, res) => {
+router.get('/signup', (req: express.Request, res: express.Response) => {
     // TODO Implement
     res.send('Register');
 });
 
-router.get('/signin', (req, res) => {
+router.get('/signin', (req: express.Request, res: express.Response) => {
     // TODO Implement
     res.send('Login');
 });
 
-router.get('/password-reset', (req, res) => {
+router.get('/password-reset', (req: express.Request, res: express.Response) => {
     // TODO Implement
     res.send('Password Reset');
 });
 
-router.get('/2fa', (req, res) => {
+router.get('/2fa', (req: express.Request, res: express.Response) => {
     // TODO Implement
     res.send('2 Factor Authentication');
 });
