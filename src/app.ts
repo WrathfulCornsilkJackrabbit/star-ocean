@@ -5,7 +5,7 @@ const port = 8080;
 
 const app = express();
 
-app.use('/', routes);
+app.use('/api/v1', routes);
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
