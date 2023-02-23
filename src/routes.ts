@@ -1,9 +1,8 @@
 import express from 'express';
+import auth from './routes/auth/auth.routes';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+router.use('/auth', auth);
 
 export default router;
