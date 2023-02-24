@@ -1,5 +1,6 @@
 import express from 'express';
 import { body } from 'express-validator';
+import { signin } from './../../controllers/auth.controller';
 
 const router = express.Router();
 
@@ -8,20 +9,18 @@ router.get('/signup', (req: express.Request, res: express.Response) => {
     res.send('Register');
 });
 
-router.post('/signin',
-    // username must be an email
+router.post(
+    '/signin',
     body('username')
         .exists()
-        .isEmail(),
+        .isEmail()
+        .normalizeEmail(),
     body('password')
         .exists()
-        .isLength({ min: 5 }),
-    (req: express.Request, res: express.Response) => {
-
-
-        // TODO Implement
-        res.send('Login');
-    });
+        .isLength({ min: 5 })
+    ,
+    signin
+);
 
 router.get('/password-reset', (req: express.Request, res: express.Response) => {
     // TODO Implement
